@@ -18,6 +18,10 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(this, "New Random Number generated. ", Toast.LENGTH_SHORT).show();
     }
 
+    private void createToast(String msg){
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,13 +35,13 @@ public class MainActivity extends AppCompatActivity {
         int enteredNumber = Integer.parseInt(num);
 
         if(enteredNumber < random){
-            Toast.makeText(this, "Higher", Toast.LENGTH_SHORT).show();
+            createToast("Higher");
         }
         else if(enteredNumber > random){
-            Toast.makeText(this, "Lower", Toast.LENGTH_SHORT).show();
+            createToast("Lower");
         }
-        else if(enteredNumber == random){
-            Toast.makeText(this, "Good Job! You guessed it.", Toast.LENGTH_SHORT).show();
+        else{
+            createToast("Good Job! You guessed it.");
             getNewRandomNumber();
         }
     }
